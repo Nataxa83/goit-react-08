@@ -4,9 +4,9 @@ import css from "./ContactForm.module.css";
 import { contactFormSchema } from "../../components/contactFormSchema";
 
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
 
-import { selectContacts } from "../../redux/selectors";
+import { selectContacts } from "../../redux/contacts/selectors";
 
 const initialValues = {
   name: "",

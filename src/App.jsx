@@ -3,10 +3,10 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import ContactForm from "./components/ContactForm/ContactForm";
 
 import css from "./App.module.css";
-import { fetchContacts } from "./redux/contactsOps";
+import { fetchContacts } from "./redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { selectError, selectIsLoading } from "./redux/selectors";
+import { selectError, selectIsLoading } from "./redux/contacts/selectors";
 import  Loader  from "./components/Loader/Loader";
 import  Error  from "./components/Error/Error";
 

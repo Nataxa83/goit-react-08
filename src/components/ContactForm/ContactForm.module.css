@@ -1,0 +1,47 @@
+.contactForm {
+  width: 400px;
+  display: block;
+  margin-bottom: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px 10px 15px 10px;
+  font-size: 20px;
+  position: relative;
+  margin: 0 auto;
+  background-color: rgb(247, 247, 227);
+}
+
+.formInput {
+  width: 380px;
+  height: 40px;
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+
+.label {
+  font-size: 25px;
+  color: coral;
+}
+
+.btn {
+  font-size: 20px;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+}
+
+.errorName {
+  font-size: 15px;
+  color: red;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.errorNumber {
+  font-size: 15px;
+  color: red;
+  position: absolute;
+  top: 110px;
+  right: 20px;
+}

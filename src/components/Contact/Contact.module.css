@@ -1,0 +1,35 @@
+.contactItem {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(247, 247, 227);
+  width: 400px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 15px;
+  font-size: 20px;
+}
+.userName {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.userPhone {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.btn {
+  margin-right: 15px;
+  font-size: 20px;
+  height: 40px;
+}

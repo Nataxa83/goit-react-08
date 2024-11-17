@@ -1,14 +1,15 @@
-import ContactList from "./components/ContactList/ContactList";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactForm from "./components/ContactForm/ContactForm";
 
 import css from "./App.module.css";
-import { fetchContacts } from "./redux/contacts/operations";
+
+import Homepage from "./pages/Homepage";
+import ContactsPage from "./pages/ContactsPage";
+import LoginPage from "./pages/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage";
+import NotFoundPage from "./pages/NotFoundPage";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { selectError, selectIsLoading } from "./redux/contacts/selectors";
-import  Loader  from "./components/Loader/Loader";
-import  Error  from "./components/Error/Error";
+import { Route, Routes } from "react-router-dom";
 
 export default function App() {
 
@@ -22,12 +23,15 @@ export default function App() {
    
   return (
     <>
-      <h1 className={css.title}>Phonebook</h1>
-      <ContactForm  />
-      <SearchBox  />
-      {isLoading && <Loader />}
-      {error && <Error error={error} />}
-      <ContactList  />
+      <Routes>
+        
+        <Route path="/" element={<Homepage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
+        <Route path ="/login" element={<LoginPage />} />
+        <Route path ="/register" element={<RegistrationPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+        
+      </Routes>
     </>
   );
 }

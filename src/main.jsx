@@ -12,6 +12,11 @@ import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    {/* <BrowserRouter
+    future={{
+      v7_relativeSplatPath: true,
+      v7_startTransition: true,
+    }}> */}
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter> 
@@ -19,5 +24,6 @@ createRoot(document.getElementById("root")).render(
         </BrowserRouter>
       </PersistGate>
     </Provider>
+    {/* </BrowserRouter> */}
   </StrictMode>     
 );

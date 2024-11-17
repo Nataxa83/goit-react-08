@@ -1,13 +1,15 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { fetchContacts, addContact, deleteContact } from "./operations";
 
+const INITIAL_STATE = {
+  items: [],
+  loading: false,
+  error: false,
+};
+
 export const contactsSlice = createSlice({   
   name: "contacts",
-  initialState: {
-    items: [],
-    loading: false,
-    error: false,
-  },
+  initialState: INITIAL_STATE,
 
   extraReducers: (builder) => 
     builder
@@ -15,7 +17,7 @@ export const contactsSlice = createSlice({
       .addMatcher(
         isAnyOf(fetchContacts.pending, addContact.pending, deleteContact.pending),
         (state) => {
-          state.loading = true;
+          // state.loading = true;
           state.error = null;
         }
       )
@@ -23,7 +25,7 @@ export const contactsSlice = createSlice({
       .addMatcher(
         isAnyOf(fetchContacts.fulfilled, addContact.fulfilled, deleteContact.fulfilled),
         (state, action) => {
-          state.loading = false;
+          // state.loading = false;
           
           if (action.type === fetchContacts.fulfilled.type) {
             state.items = action.payload;
@@ -39,7 +41,7 @@ export const contactsSlice = createSlice({
         isAnyOf(fetchContacts.rejected, addContact.rejected, deleteContact.rejected),
         (state, action) => {
           state.error = action.error ? action.error.message : "An error occurred";
-          state.loading = false;
+          // state.loading = false;
         }
       )
 });

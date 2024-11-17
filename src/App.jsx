@@ -1,11 +1,11 @@
 
 import css from "./App.module.css";
 
-import Homepage from "./pages/Homepage";
-import ContactsPage from "./pages/ContactsPage";
-import LoginPage from "./pages/LoginPage";
-import RegistrationPage from "./pages/RegistrationPage";
-import NotFoundPage from "./pages/NotFoundPage";
+import Homepage from "./pages/HomePage/HomePage";
+import ContactsPage from "./pages/ContactsPage/ContactsPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -14,17 +14,17 @@ import { Route, Routes } from "react-router-dom";
 export default function App() {
 
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading); 
-  const error = useSelector(selectError);
+  // const isLoading = useSelector(selectIsLoading); 
+  // const error = useSelector(selectError);
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
    
   return (
     <>
       <Routes>
-        
+
         <Route path="/" element={<Homepage />} />
         <Route path="/contacts" element={<ContactsPage />} />
         <Route path ="/login" element={<LoginPage />} />

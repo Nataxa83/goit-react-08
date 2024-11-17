@@ -12,18 +12,16 @@ import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <BrowserRouter
+    <BrowserRouter
     future={{
       v7_relativeSplatPath: true,
       v7_startTransition: true,
-    }}> */}
+    }}>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter> 
           <App />
-        </BrowserRouter>
       </PersistGate>
     </Provider>
-    {/* </BrowserRouter> */}
+    </BrowserRouter>
   </StrictMode>     
 );

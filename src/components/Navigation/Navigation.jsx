@@ -11,7 +11,6 @@ const isActiveClasses = ({ isActive }) =>
 const Navigation = () => {
 
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  // console.log(isLoggedIn);
   return (
       <div className={css.container}>
          <NavLink to="/" className={isActiveClasses}>Home</NavLink>

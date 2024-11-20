@@ -66,5 +66,23 @@ export const register = createAsyncThunk(
         } catch (error) {
           return thunkApi.rejectWithValue(error.message);
         }
-      }
-  );
+      })
+      
+      export const refresh = createAsyncThunk(
+        "auth/refresh",
+        async (_, thunkApi) => {
+          const state = thunkApi.getState();
+          const savedToken = state.authData.token;
+         
+          if (!savedToken) {
+            return thunkApi.rejectWithValue("No token found to refresh user data");
+          }
+          try {
+              setHeaders(savedToken);
+            const {data} = await authInstance.get('/users/current');
+            console.log(data);
+            return data;
+          } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+          }
+        });

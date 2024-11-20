@@ -20,7 +20,7 @@ import { authReducer } from "./auth/slice";
   const authConfig = {
     key: "authKey",
     storage,
-    whitelist: ["users"], // blacklist: ["showProfilesList"]
+    whitelist: ["token"], // blacklist: ["showProfilesList"]
   };
   
 export const store = configureStore({

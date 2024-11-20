@@ -11,16 +11,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import { refresh } from "./redux/auth/operations";
+import { selectIsRefreshing } from "./redux/auth/selectors";
 
 export default function App() {
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const isLoading = useSelector(selectIsLoading); 
   // const error = useSelector(selectError);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refresh());
+  }, [dispatch]);
+
+  if (isRefreshing) {
+    return <div>Loading...</div>;
+  }
    
   return (
     <>

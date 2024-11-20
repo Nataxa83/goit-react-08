@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import css from "./ContactForm.module.css";
 
-import { contactFormSchema } from "../../components/contactFormSchema";
+import { contactFormSchema } from "../../components/formsSchema";
 
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";

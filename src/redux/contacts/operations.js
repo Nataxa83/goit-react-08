@@ -1,20 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { authInstance } from "../auth/operations";
 
-// axios.defaults.baseURL = "https://connections-api.goit.global/";
 
 export const fetchContacts = createAsyncThunk(
     "contacts/fetchAll",
     async (_, thunkApi) => {
-                // dispatch({ type: "contacts/fetchAll/pending" })
         try {
             // throw new Error("Error");
-            const response = await axios.get("/contacts");
-            return response.data;
-                // dispatch({ type: "contacts/fetchAll/fulfilled", payload: response.data })
+            const {data} = await authInstance.get("/contacts");
+            console.log(data);
+            return data;
         } catch (error) {
-                // return error.message;
-                // dispatch({ type: "contacts/fetchAll/rejected", payload: error.message })
             return thunkApi.rejectWithValue(error.message);
         } 
 }
@@ -24,8 +20,8 @@ export const addContact = createAsyncThunk(
     "contacts/addContact",
     async (newContact, thunkApi) => {
       try {
-        const response = await axios.post('/contacts', newContact);
-        return response.data;
+        const {data} = await authInstance.post('/contacts', newContact);
+        return data;
       } catch (error) {
         return thunkApi.rejectWithValue(error.message);
       }
@@ -34,10 +30,10 @@ export const addContact = createAsyncThunk(
 
   export const deleteContact = createAsyncThunk(
     "contacts/deleteContact",
-    async (id, thunkApi) => {
+    async (contactId, thunkApi) => {
       try {
-        const response = await axios.delete(`/contacts/${id}`);
-        return response.data;
+        const {data} = await authInstance.delete(`/contacts/${contactId}`);
+        return data;
       } catch (error) {
         return thunkApi.rejectWithValue(error.message);
       }

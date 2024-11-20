@@ -17,11 +17,11 @@ createRoot(document.getElementById("root")).render(
       v7_relativeSplatPath: true,
       v7_startTransition: true,
     }}>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-          <App />
-      </PersistGate>
-    </Provider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+            <App />
+        </PersistGate>
+      </Provider>
     </BrowserRouter>
   </StrictMode>     
 );

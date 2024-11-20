@@ -1,0 +1,17 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn {
+    font-size: 20px;
+    height: 40px;
+    width: 100px;
+    display: block;
+    /* margin: 0 auto; */
+    border-radius: 5px;
+    background-color: rgb(247, 247, 227);
+    border: 1px solid black;
+    cursor: pointer;
+}

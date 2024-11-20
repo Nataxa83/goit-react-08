@@ -10,10 +10,11 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
 
 export default function App() {
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const isLoading = useSelector(selectIsLoading); 
   // const error = useSelector(selectError);
 
@@ -23,15 +24,19 @@ export default function App() {
    
   return (
     <>
-      <Routes>
+      <Layout>
+  
+        <Routes>
 
-        <Route path="/" element={<Homepage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-        <Route path ="/login" element={<LoginPage />} />
-        <Route path ="/register" element={<RegistrationPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path ="/login" element={<LoginPage />} />
+          <Route path ="/register" element={<RegistrationPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+          
+        </Routes>
         
-      </Routes>
+      </Layout>
     </>
   );
 }

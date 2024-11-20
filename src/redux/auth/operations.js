@@ -28,10 +28,43 @@ export const register = createAsyncThunk(
           
       try {
         const {data} = await authInstance.post('/users/signup', formData);
+        // {
+      //     "user": {
+      //         "name": "John Taco",
+      //         "email": "1231241sadwda213wd@gmail.com"
+      //     },
+      //     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzJiYmYxOWM0OTVlZDZlMjVmMzhkYzUiLCJpYXQiOjE3MzA5MjAyMTd9.YLCxvnYkkYJDZzyDlOTJs71Ulev9u4OAEVP7a3OVb8c"
+      // }
+        setHeaders(data.token);
         console.log(data);
         return data;
       } catch (error) {
         return thunkApi.rejectWithValue(error.message);
       }
-    }
+    })
+
+    export const login = createAsyncThunk(
+      "auth/login",
+      async (formData, thunkApi) => {
+          // formData : {
+          //     "name": "Adrian Cross",
+          //     "email": "across@mail.com",
+          //   }
+            
+        try {
+          const {data} = await authInstance.post('/users/login', formData);
+          // {
+        //     "user": {
+        //         "name": "John Taco",
+        //         "email": "1231241sadwda213wd@gmail.com"
+        //     },
+        //     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzJiYmYxOWM0OTVlZDZlMjVmMzhkYzUiLCJpYXQiOjE3MzA5MjAyMTd9.YLCxvnYkkYJDZzyDlOTJs71Ulev9u4OAEVP7a3OVb8c"
+        // }
+          setHeaders(data.token);
+          console.log(data);
+          return data;
+        } catch (error) {
+          return thunkApi.rejectWithValue(error.message);
+        }
+      }
   );

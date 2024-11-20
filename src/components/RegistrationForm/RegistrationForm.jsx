@@ -1,57 +1,78 @@
-import { ErrorMessage, Field, Formik } from "formik"
-import { Form } from "react-router-dom"
+import { ErrorMessage, Field, Formik, Form } from "formik"
 import css from "./RegistrationForm.module.css"
 
+import { registrationFormSchema } from "../../components/formsSchema"
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/auth/operations";
+
+const INITIAL_VALUES = {
+  name: "",
+  email: "",
+  password: "",
+};
+
 const RegistrationForm = () => {
+  const dispatch = useDispatch();
+  const handleSubmit = (values, actions) => {
+    console.log(values);
+    dispatch(register(values));
+    actions.resetForm();
+};
+
   return (
     <div>
-      <Formik>
-        <Form>
+      <Formik
+        initialValues={INITIAL_VALUES}
+        onSubmit={handleSubmit}
+        validationSchema={registrationFormSchema}>
+        <Form className={css.form}>
 
-        <label className={css.label}>
-            <span className={css.labelText}>Name</span>
+        <label className={css.u}>
+            <span className={css.uu}>Name</span>
             <Field
               type="text"
-              name="username"
+              name="name"
               placeholder="Enter your name"
               className={css.field}
             />
             <ErrorMessage
-              name="username"
+              name="name"
               component="span"
               className={css.error}
             />
           </label>
-          <label className={css.label}>
-            <span className={css.labelText}>Email</span>
+          
+          <label className={css.u}>
+            <span className={css.lu}>Email</span>
             <Field
               type="text"
-              name="useremail"
-              placeholder="Enter your email"
+              name="email"
+              placeholder="exemple.email@example.com"
               className={css.field}
             />
             <ErrorMessage
-              name="useremail"
+              name="email"
               component="span"
               className={css.error}
             />
           </label>
-          <label className={css.label}>
-            <span className={css.labelText}>Password</span>
+
+          <label className={css.u}>
+            <span className={css.lu}>Password</span>
             <Field
               type="password"
-              name="userpassword"
+              name="password"
               placeholder="Enter your password"
               className={css.field}
             />
             <ErrorMessage
-              name="userpassword"
+              name="password"
               component="span"
               className={css.error}
             />
           </label>
-          <button type="submit" className={css.button}>
-            Registration
+          <button type="submit" className={css.btn}>
+            Sign Up
           </button>
 
         </Form>

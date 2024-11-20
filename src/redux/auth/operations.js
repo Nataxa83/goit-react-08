@@ -85,4 +85,19 @@ export const register = createAsyncThunk(
           } catch (error) {
             return thunkApi.rejectWithValue(error.message);
           }
-        });
+        })
+        
+        export const logout = createAsyncThunk(
+          "auth/logout",
+          async (_, thunkApi) => {
+
+            try {
+                
+              const {data} = await authInstance.post('/users/logout');
+              clearHeaders();
+              console.log(data);
+              return data;
+            } catch (error) {
+              return thunkApi.rejectWithValue(error.message);
+            }
+          });

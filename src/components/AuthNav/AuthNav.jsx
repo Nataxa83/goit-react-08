@@ -11,7 +11,7 @@ const AuthNav = () => {
     return (
         <div className={css.container}>
             <NavLink to="/register" className={isActiveClasses}>Sign Up</NavLink>
-            <NavLink to="/login" className={isActiveClasses}>Log In</NavLink>
+            <NavLink to="/login" className={isActiveClasses}>           Log In</NavLink>
         </div>
     )
 }

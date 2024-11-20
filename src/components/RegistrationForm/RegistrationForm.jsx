@@ -4,6 +4,7 @@ import css from "./RegistrationForm.module.css"
 import { registrationFormSchema } from "../../components/formsSchema"
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
+import toast, { Toaster } from "react-hot-toast";
 
 const INITIAL_VALUES = {
   name: "",
@@ -15,12 +16,20 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
     console.log(values);
-    dispatch(register(values));
+    dispatch(register(values))
+    .unwrap()
+    .then((result) => {
+      toast.success(`User ${result.user.email} has been successfully registered!`); 
+    })
+    .catch(() => {
+      toast.error(`This account already exists!`);
+    });
     actions.resetForm();
 };
 
   return (
     <div>
+      <Toaster />
       <Formik
         initialValues={INITIAL_VALUES}
         onSubmit={handleSubmit}

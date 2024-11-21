@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { fetchContacts, addContact, deleteContact } from "./operations";
+import { logout } from "../auth/operations";
 
 const INITIAL_STATE = {
   items: [],
@@ -43,6 +44,10 @@ export const contactsSlice = createSlice({
           state.error = action.error ? action.error.message : "An error occurred";
           // state.loading = false;
         }
+      )
+      .addMatcher(
+        isAnyOf(logout.fulfilled),
+        () => INITIAL_STATE
       )
 });
 

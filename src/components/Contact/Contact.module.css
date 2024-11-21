@@ -33,3 +33,19 @@
   font-size: 20px;
   height: 40px;
 }
+
+.toastContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: rgb(98, 8, 8);
+}
+
+.toastButtons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}

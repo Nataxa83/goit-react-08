@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 
 import { selectContacts } from "../../redux/contacts/selectors";
+import toast, { Toaster } from "react-hot-toast";
 
 const initialValues = {
   name: "",
@@ -22,7 +23,7 @@ export default function ContactForm() {
   const handleSubmit = (values, actions) => {
 
     if (contacts.some(contact => contact.number === values.number)) {
-      alert("This number already exists!");
+      toast.error("This number already exists!");
       return;
     }
     const newContact = {
@@ -32,10 +33,15 @@ export default function ContactForm() {
     }
     
     dispatch(addContact(newContact));
+    toast.success("Contact has been successfully added!");
     actions.resetForm();
   };
   
   return (
+    <div>
+
+    
+    <Toaster /> 
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
@@ -72,5 +78,6 @@ export default function ContactForm() {
         </button>
       </Form>
     </Formik>
+    </div>
   );
 }

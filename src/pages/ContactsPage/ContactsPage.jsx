@@ -6,6 +6,9 @@ import Loader from "../../components/Loader/Loader";
 import TaskList from "../../components/ContactList/ContactList";
 import ContactsForm from "../../components/ContactForm/ContactForm";
 import SearchBox from "../../components/SearchBox/SearchBox";
+import Error from "../../components/Error/Error";
+
+import css from "./ContactsPage.module.css"
 
 const ContactsPage = () => {
 
@@ -22,10 +25,10 @@ const ContactsPage = () => {
   return (
     <div>
     {isLoading && <Loader />}
-    {error && <p>{error}</p>}
+    {error && <p><Error />  </p>}
     <ContactsForm />
     <SearchBox />
-    {(Array.isArray(contacts) && contacts.length > 0 ) ? <TaskList /> :<p>No contacts found</p> }
+    {(Array.isArray(contacts) && contacts.length > 0 ) ? <TaskList /> :<p className={css.text}>You have no contacts yet</p> }
     </div>
   )
 }

@@ -21,10 +21,10 @@ export default function Contact({ data: { id, name, number }}) {
           </div>
         </div>
         <button type="button" className={css.btn} 
-                onClick={() => dispatch(deleteContact(id)) }
-        >
+                onClick={() => dispatch(deleteContact(id)) }>
                 Delete
         </button>
+       
       </div>
     </>
   );

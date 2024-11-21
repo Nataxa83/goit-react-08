@@ -40,7 +40,9 @@ export default function ContactForm() {
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={contactFormSchema}>
+
       <Form className={css.contactForm}>
+        
         <label>
           <span className={css.label}>Name</span>
         </label>

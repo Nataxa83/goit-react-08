@@ -17,8 +17,6 @@ const RestrictedRoute = lazy(() => import("./components/RestrictedRoute/Restrict
 export default function App() {
 
   const dispatch = useDispatch();
-  // const isLoading = useSelector(selectIsLoading); 
-  // const error = useSelector(selectError);
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {

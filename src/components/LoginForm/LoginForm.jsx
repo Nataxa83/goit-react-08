@@ -28,37 +28,38 @@ const LoginForm = () => {
         initialValues={INITIAL_VALUES}
         onSubmit={handleSubmit}
         validationSchema={loginFormSchema}>
-        <Form className={css.form}>       
+
+        <Form className={css.logForm}>       
             
-          <label className={css.u}>
-            <span className={css.lu}>Email</span>
+          <label >
+            <span className={css.label}>Email</span>
+            </label>
             <Field
               type="text"
               name="email"
               placeholder="exemple.email@example.com"
-              className={css.field}
+              className={css.formInput}
             />
             <ErrorMessage
               name="email"
               component="span"
-              className={css.error}
+              className={css.errorEmail}
             />
-          </label>
 
-          <label className={css.u}>
-            <span className={css.lu}>Password</span>
+          <label >
+            <span className={css.label}>Password</span>
+            </label>
             <Field
               type="password"
               name="password"
               placeholder="Enter your password"
-              className={css.field}
+              className={css.formInput}
             />
             <ErrorMessage
               name="password"
               component="span"
-              className={css.error}
+              className={css.errorPassword}
             />
-          </label>
           
           <button type="submit" className={css.btn}>
             Log In

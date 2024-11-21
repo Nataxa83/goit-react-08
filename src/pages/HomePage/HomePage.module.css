@@ -1,0 +1,19 @@
+.homePage {
+    background-color: rgb(247, 247, 227);
+    height: 93vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+}
+
+.title {
+    color: coral;
+    font-size: 80px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.icon {
+    text-align: center;
+}

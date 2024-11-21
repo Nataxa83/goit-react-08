@@ -21,12 +21,11 @@ const ContactsPage = () => {
 
   return (
     <div>
-    { Array.isArray(contacts) && contacts.length === 0  && <p>No contacts found</p>}
     {isLoading && <Loader />}
     {error && <p>{error}</p>}
     <ContactsForm />
     <SearchBox />
-    {Array.isArray(contacts) && contacts.length > 0  && <TaskList />}
+    {(Array.isArray(contacts) && contacts.length > 0 ) ? <TaskList /> :<p>No contacts found</p> }
     </div>
   )
 }

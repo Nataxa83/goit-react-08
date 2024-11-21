@@ -34,52 +34,53 @@ const RegistrationForm = () => {
         initialValues={INITIAL_VALUES}
         onSubmit={handleSubmit}
         validationSchema={registrationFormSchema}>
-        <Form className={css.form}>
 
-        <label className={css.u}>
-            <span className={css.uu}>Name</span>
+        <Form className={css.regForm}>
+
+        <label >
+            <span className={css.label}>Name</span>
+            </label>
             <Field
               type="text"
               name="name"
               placeholder="Enter your name"
-              className={css.field}
+              className={css.formInput}
             />
             <ErrorMessage
               name="name"
               component="span"
-              className={css.error}
+              className={css.errorName}
             />
-          </label>
           
-          <label className={css.u}>
-            <span className={css.lu}>Email</span>
+          <label >
+            <span className={css.label}>Email</span>
+            </label>
             <Field
               type="text"
               name="email"
               placeholder="exemple.email@example.com"
-              className={css.field}
+              className={css.formInput}
             />
             <ErrorMessage
               name="email"
               component="span"
-              className={css.error}
+              className={css.errorEmail}
             />
-          </label>
 
-          <label className={css.u}>
-            <span className={css.lu}>Password</span>
+          <label >
+            <span className={css.label}>Password</span>
+            </label>
             <Field
               type="password"
               name="password"
               placeholder="Enter your password"
-              className={css.field}
+              className={css.formInput}
             />
             <ErrorMessage
               name="password"
               component="span"
-              className={css.error}
+              className={css.errorPassword}
             />
-          </label>
           <button type="submit" className={css.btn}>
             Sign Up
           </button>

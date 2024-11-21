@@ -1,0 +1,17 @@
+.link {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(171, 66, 27);
+} 
+
+.link:hover,
+.link:focus {
+    color: coral;
+}
+
+.nav {
+    display: flex;
+    gap: 30px; 
+    align-items: center;
+}

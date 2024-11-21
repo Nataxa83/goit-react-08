@@ -25,7 +25,7 @@ export const contactsSlice = createSlice({
       .addMatcher(
         isAnyOf(fetchContacts.fulfilled, addContact.fulfilled, deleteContact.fulfilled),
         (state, action) => {
-          // state.loading = false;
+          state.loading = false;
           
           if (action.type === fetchContacts.fulfilled.type) {
             state.items = action.payload;
